@@ -1,0 +1,16 @@
+version: 1
+formatters:
+    default:
+        format : '[%(asctime)s] [%(filename)s] [%(funcName)s] [%(process)d] [%(name)s] %(message)s'
+handlers:
+    file:
+        class : logging.handlers.TimedRotatingFileHandler
+        level : DEBUG
+        formatter : default
+        filename : 'test.log'
+        backupCount : 3
+        when : 'M'
+        encoding : 'utf-8'
+root:
+    level: DEBUG
+    handlers: [ file ]

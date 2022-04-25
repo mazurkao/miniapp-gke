@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: miniapp-flask
+  labels:
+    app: miniapp-flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: miniapp-flask
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: miniapp-flask
+        tier: web
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: miniapp-flask
+          image: gcr.io/clean-monitor-205809/miniapp-flask:v1
+          ports:
+            - containerPort: 5555
+          resources:
+            requests:
+              cpu: 250m

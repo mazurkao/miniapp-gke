@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: miniapp-flask
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: miniapp-flask
+  minReplicas: 1
+  maxReplicas: 1 # オートスケーリングを試す時は2以上にする
+  targetCPUUtilizationPercentage: 50
