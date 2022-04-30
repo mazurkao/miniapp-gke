@@ -19,7 +19,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: miniapp-flask
-          image: gcr.io/clean-monitor-205809/miniapp-flask:v1
+          image: gcr.io/<projectID>/miniapp-flask:v1
           ports:
             - containerPort: 5555
           resources:
